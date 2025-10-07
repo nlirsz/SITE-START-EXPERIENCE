@@ -187,3 +187,28 @@
 html {
   font-size: var(--font-size);
 }
+
+/* Electric border animation for ReactBits-like effect */
+@keyframes electric-move {
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -100; }
+}
+
+@keyframes electric-glow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.electric-border rect {
+  stroke: var(--electric-border-color, var(--color-border));
+  stroke-width: 1.6;
+  fill: transparent;
+  stroke-linecap: round;
+  stroke-dasharray: 6 8 2 8;
+  animation: electric-move 1.8s linear infinite, electric-glow 1.6s ease-in-out infinite;
+  filter: drop-shadow(0 0 8px var(--electric-border-color, var(--color-border)));
+}
+
+.electric-border {
+  pointer-events: none;
+}
