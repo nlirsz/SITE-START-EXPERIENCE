@@ -8,11 +8,15 @@ export function Footer() {
           
           {/* Logo and brand */}
           <div className="space-y-3">
-            <img 
-              src={logoImage}
-              alt="Start Experience Logo"
-              className="h-10 mx-auto opacity-80"
-            />
+            <picture>
+              <source srcSet={logoImage.replace('.png', '.webp')} type="image/webp" />
+              <img 
+                src={logoImage}
+                alt="Start Experience Logo"
+                className="h-10 mx-auto opacity-80"
+                loading="lazy"
+              />
+            </picture>
             <p className="text-gray-400 max-w-xl mx-auto leading-relaxed text-sm">
               Transformando a relação entre investidores e o mercado financeiro através de 
               informações exclusivas e estratégias premium.

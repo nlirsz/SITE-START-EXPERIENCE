@@ -26,11 +26,15 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <div className="flex items-center">
-            <img 
-              src={logoImage}
-              alt="Start Experience Logo"
-              className="h-10 lg:h-12"
-            />
+            <picture>
+              <source srcSet={logoImage.replace('.png', '.webp')} type="image/webp" />
+              <img 
+                src={logoImage}
+                alt="Start Experience Logo"
+                className="h-10 lg:h-12"
+                loading="lazy"
+              />
+            </picture>
           </div>
           
           <div className="hidden lg:flex items-center">

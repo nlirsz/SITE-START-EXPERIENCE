@@ -22,11 +22,24 @@ export function HeroSection() {
           {/* Image Section - Top (Mobile Only) */}
           <div className="relative flex justify-center">
             <div className="relative max-w-2xl mx-auto">
-              <img
-                src={heroImage}
-                alt="Especialistas em Trading"
-                className="w-full h-auto object-contain"
-              />
+              <picture>
+                <source
+                  srcSet={
+                    `/imgs/2cb7bc41bd3f74a208745df70e5bb0f89794147c-480.webp 480w, ` +
+                    `/imgs/2cb7bc41bd3f74a208745df70e5bb0f89794147c-768.webp 768w, ` +
+                    `/imgs/2cb7bc41bd3f74a208745df70e5bb0f89794147c-1200.webp 1200w, ` +
+                    `/imgs/2cb7bc41bd3f74a208745df70e5bb0f89794147c-1800.webp 1800w`
+                  }
+                  type="image/webp"
+                  sizes="100vw"
+                />
+                <img
+                  src={heroImage}
+                  alt="Especialistas em Trading"
+                  className="w-full h-auto object-contain"
+                  loading="eager"
+                />
+              </picture>
               
               {/* Floating elements */}
               <div className="absolute -top-8 -right-8 w-24 h-24 bg-[#F2FF00]/20 rounded-full blur-xl"></div>
@@ -44,6 +57,7 @@ export function HeroSection() {
                   src="https://i.ibb.co/1CNPbY8/LOGO-START-1.png"
                   alt="Start Logo"
                   className="h-16 w-auto mb-2"
+                  loading="lazy"
                 />
                 <span className="text-[64px]">Experience</span>
               </h1>
@@ -82,6 +96,7 @@ export function HeroSection() {
                   src="https://i.ibb.co/1CNPbY8/LOGO-START-1.png"
                   alt="Start Logo"
                   className="h-12 xl:h-16 w-auto mb-2"
+                  loading="lazy"
                 />
                 <span>Experience</span>
               </h1>
@@ -109,11 +124,24 @@ export function HeroSection() {
           {/* Image Side - Right */}
           <div className="relative">
             <div className="relative max-w-3xl lg:max-w-4xl mx-auto">
-              <img
-                src={heroImage}
-                alt="Especialistas em Trading"
-                className="w-full h-auto object-contain scale-125 lg:scale-150 xl:scale-[1.75]"
-              />
+              <picture>
+                <source
+                  srcSet={
+                    `/imgs/2cb7bc41bd3f74a208745df70e5bb0f89794147c-480.webp 480w, ` +
+                    `/imgs/2cb7bc41bd3f74a208745df70e5bb0f89794147c-768.webp 768w, ` +
+                    `/imgs/2cb7bc41bd3f74a208745df70e5bb0f89794147c-1200.webp 1200w, ` +
+                    `/imgs/2cb7bc41bd3f74a208745df70e5bb0f89794147c-1800.webp 1800w`
+                  }
+                  type="image/webp"
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                />
+                <img
+                  src={heroImage}
+                  alt="Especialistas em Trading"
+                  className="w-full h-auto object-contain scale-125 lg:scale-150 xl:scale-[1.75]"
+                  loading="eager"
+                />
+              </picture>
               
               {/* Floating elements */}
               <div className="absolute -top-12 -right-12 w-32 h-32 bg-[#F2FF00]/20 rounded-full blur-xl"></div>

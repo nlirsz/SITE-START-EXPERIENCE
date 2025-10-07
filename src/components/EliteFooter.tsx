@@ -10,6 +10,7 @@ export function EliteFooter() {
               src="https://i.imgur.com/lpUIgGl.png" 
               alt="XTRADERS Logo"
               className="h-8 mx-auto opacity-80"
+              loading="lazy"
             />
             <p className="text-gray-400 max-w-xl mx-auto leading-relaxed text-sm">
               Transformando a relação entre investidores e o mercado financeiro através de 

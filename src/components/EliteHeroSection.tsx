@@ -20,11 +20,24 @@ export function EliteHeroSection() {
           {/* Image Section - Left */}
           <div className="lg:order-1 order-2 flex justify-center lg:justify-start">
             <div className="relative">
-              <img
-                src={newReferenceImage}
-                alt="Especialista em Trading"
-                className="w-full max-w-[480px] lg:max-w-[520px] h-auto object-contain"
-              />
+              <picture>
+                <source
+                  srcSet={
+                    `/imgs/fdfda97c8c9fe36618dc067011ed3c34c1b512e2-480.webp 480w, ` +
+                    `/imgs/fdfda97c8c9fe36618dc067011ed3c34c1b512e2-768.webp 768w, ` +
+                    `/imgs/fdfda97c8c9fe36618dc067011ed3c34c1b512e2-1200.webp 1200w, ` +
+                    `/imgs/fdfda97c8c9fe36618dc067011ed3c34c1b512e2-1800.webp 1800w`
+                  }
+                  type="image/webp"
+                  sizes="(min-width: 1024px) 40vw, 80vw"
+                />
+                <img
+                  src={newReferenceImage}
+                  alt="Especialista em Trading"
+                  className="w-full max-w-[480px] lg:max-w-[520px] h-auto object-contain"
+                  loading="lazy"
+                />
+              </picture>
             </div>
           </div>
           

@@ -25,6 +25,7 @@ export function PremiumHeader() {
               src="https://i.imgur.com/lpUIgGl.png" 
               alt="XTRADERS Logo"
               className="h-6 lg:h-8 transition-all duration-300 hover:scale-105"
+              loading="lazy"
             />
           </div>
           

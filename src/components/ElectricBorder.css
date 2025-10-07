@@ -1,35 +1,58 @@
 .electric-border {
   --electric-color: var(--electric-color, #F2FF00);
-  --eb-thickness: var(--eb-thickness, 2px);
-  --eb-speed: var(--eb-speed, 1s);
+  --eb-thickness: var(--eb-thickness, 3px);
+  --eb-speed: var(--eb-speed, 1.2s);
   position: absolute;
   inset: 0;
   pointer-events: none;
   border-radius: inherit;
   display: block;
+  /* z-index intentionally omitted so parent wrapper controls stacking */
 }
 
-.electric-border .eb-svg {
+.electric-border .eb-outline {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
+  border-radius: inherit;
+  outline: calc(var(--eb-thickness)) solid rgba(242,255,0,0.95);
+  outline-offset: 0px;
+  box-shadow:
+    0 0 6px rgba(242,255,0,0.25),
+    0 0 18px rgba(242,255,0,0.22),
+    0 0 40px rgba(242,255,0,0.12);
+  opacity: 1;
+  pointer-events: none;
+  /* animated sheen: moving gradient overlay using pseudo-element */
 }
 
-.electric-border .eb-rect {
-  fill: transparent;
-  stroke: var(--electric-color);
-  stroke-width: calc(var(--eb-thickness));
-  stroke-linejoin: round;
-  rx: 12;
-  ry: 12;
-  /* dash pattern to create an animated flowing border */
-  stroke-dasharray: 8 6 6 6 8 6;
-  stroke-dashoffset: 0;
-  filter: drop-shadow(0 0 8px var(--electric-color)) drop-shadow(0 0 20px rgba(255,255,0,0.12));
-  animation: eb-move var(--eb-speed) linear infinite, eb-flicker calc(var(--eb-speed) * 0.6) steps(6, end) infinite;
+.electric-border .eb-outline::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.03) 30%, rgba(242,255,0,0.12) 50%, rgba(255,255,255,0.03) 70%, transparent 100%);
+  /* avoid blend-mode to prevent bright artifacts over internal elements */
+  mix-blend-mode: normal;
+  filter: blur(4px);
+  opacity: 0.6;
+  transform: translateX(-100%);
+  animation: eb-sheen var(--eb-speed) linear infinite;
 }
+
+@keyframes eb-sheen {
+  to { transform: translateX(100%); }
+}
+
+/* small flicker */
+@keyframes eb-flicker-opacity {
+  0% { opacity: 0.85; }
+  30% { opacity: 1; }
+  40% { opacity: 0.6; }
+  60% { opacity: 1; }
+  100% { opacity: 0.9; }
+}
+
+.electric-border .eb-outline { animation: eb-flicker-opacity calc(var(--eb-speed) * 0.7) steps(6, end) infinite; }
 
 @keyframes eb-move {
   to {
