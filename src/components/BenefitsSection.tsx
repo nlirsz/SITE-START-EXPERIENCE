@@ -1,5 +1,4 @@
 import { Clock, TrendingUp, BookOpen } from 'lucide-react';
-import ElectricBorder from './ElectricBorder';
 
 const benefits = [
   {
@@ -49,12 +48,10 @@ export function BenefitsSection() {
                 key={index}
                 className="group relative bg-black/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-800 hover:border-[#F2FF00]/30"
               >
-                {/* Electric animated border (behind content but above background) */}
-                <div className="absolute -inset-1 pointer-events-none z-10">
-                  <ElectricBorder color="#F2FF00" thickness={3} speed={1.2} />
-                </div>
+                {/* subtle static accent outline (replaces electric animation) */}
+                <div className="pointer-events-none absolute -inset-px rounded-2xl border border-transparent shadow-[0_0_12px_rgba(242,255,0,0.06)]" aria-hidden />
 
-                {/* Card inner content - above the animated border */}
+                {/* Card inner content */}
                 <div className="relative z-20">
                   {/* Icon */}
                   <div className="w-14 h-14 bg-[#F2FF00]/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#F2FF00]/20 transition-colors">
