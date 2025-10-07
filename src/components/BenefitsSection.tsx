@@ -45,29 +45,30 @@ export function BenefitsSection() {
           {benefits.map((benefit, index) => {
             const Icon = benefit.icon;
             return (
-              <div 
+              <div
                 key={index}
                 className="group relative bg-black/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-800 hover:border-[#F2FF00]/30"
               >
-                {/* Electric animated border */}
-                <div className="absolute inset-0 pointer-events-none -z-10">
+                {/* Electric animated border (behind content but above background) */}
+                <div className="absolute inset-0 pointer-events-none z-0">
                   <ElectricBorder color="var(--color-border)" />
                 </div>
-                {/* Badge */}
-                
-                {/* Icon */}
-                <div className="w-14 h-14 bg-[#F2FF00]/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#F2FF00]/20 transition-colors">
-                  <Icon className="w-7 h-7 text-[#F2FF00]" />
+
+                {/* Card inner content - above the animated border */}
+                <div className="relative z-10">
+                  {/* Icon */}
+                  <div className="w-14 h-14 bg-[#F2FF00]/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#F2FF00]/20 transition-colors">
+                    <Icon className="w-7 h-7 text-[#F2FF00]" />
+                  </div>
+
+                  <h3 className="text-xl font-bold text-white mb-4">
+                    {benefit.title}
+                  </h3>
+
+                  <p className="text-gray-300 leading-relaxed">
+                    {benefit.description}
+                  </p>
                 </div>
-                
-                {/* Content */}
-                <h3 className="text-xl font-bold text-white mb-4">
-                  {benefit.title}
-                </h3>
-                
-                <p className="text-gray-300 leading-relaxed">
-                  {benefit.description}
-                </p>
               </div>
             );
           })}
