@@ -50,8 +50,8 @@ export function BenefitsSection() {
                 className="group relative bg-black/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-800 hover:border-[#F2FF00]/30"
               >
                 {/* Electric animated border (behind content but above background) */}
-                <div className="absolute inset-0 pointer-events-none z-0">
-                  <ElectricBorder color="var(--color-border)" />
+                <div className="absolute -inset-1 pointer-events-none z-0">
+                  <ElectricBorder color="#F2FF00" />
                 </div>
 
                 {/* Card inner content - above the animated border */}

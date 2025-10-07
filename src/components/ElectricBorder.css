@@ -45,7 +45,11 @@
 }
 
 .eb-stroke {
-  border: var(--eb-border-width) solid var(--electric-border-color);
+  /* Use outline so the stroke is drawn outside the element box and not clipped */
+  border: none;
+  outline: var(--eb-border-width) solid var(--electric-border-color);
+  outline-offset: 0px;
+  box-shadow: 0 0 8px var(--electric-border-color), 0 0 24px color-mix(in srgb, var(--electric-border-color) 30%, transparent);
 }
 
 .eb-glow-1 {
