@@ -41,7 +41,7 @@ export function LeadForm() {
       window.location.href = whatsappURL;
     } catch (error) {
       console.error('Error:', error);
-      window.location.href = 'https://chat.whatsapp.com/ImQP6AhyldABBXk7deRCLR';
+      window.location.href = 'https://chat.whatsapp.com/CtA1N3v24BhH5Ud9RmNOVV?mode=wwc';
     } finally {
       setIsSubmitting(false);
     }
