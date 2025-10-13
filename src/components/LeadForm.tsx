@@ -26,7 +26,7 @@ export function LeadForm() {
 
     try {
       const scriptURL = 'https://script.google.com/macros/s/AKfycbwof2CXa8DX28wjQBTt4HFPFgeVF28CXfIB6EGLGIXAXlyPyniDl4aNvrfTZQ7w5pA0/exec';
-      const whatsappURL = 'https://chat.whatsapp.com/ImQP6AhyldABBXk7deRCLR';
+      const whatsappURL = 'https://chat.whatsapp.com/CtA1N3v24BhH5Ud9RmNOVV?mode=wwt';
       
       const formDataToSend = new FormData();
       Object.entries(formData).forEach(([key, value]) => {
